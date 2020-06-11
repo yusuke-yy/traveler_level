@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}ゲスト診断結果|旅人力診断{% endblock %}
+
+{% block active_guest_diagnosis %}active{% endblock %}
+
+{% block contents %}
+<h1 style="margin-top:2rem;"></h1>
+<div class="container">
+        <div class="row">
+         <div class="my-div-style">
+            <h2>あなたの旅人力は「松尾 芭蕉」級です。</h2> 
+            <p>目指せ「コロンブス」級！！</p>
+            <img class="img-fluid rounded-circle" src="{% static 'img/04.jpg' %}" alt="松島">
+            <br>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-xl rounded-pill mt-4">新規登録はこちら</a>
+            <p></p>
+         </div>
+        </div>
+</div>
+{% endblock %}

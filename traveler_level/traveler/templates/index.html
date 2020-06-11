@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}旅人力診断{% endblock %}
+
+{% block header %}
+
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">旅人力診断</h1>
+        <h2 class="masthead-subheading mb-0">あなたの旅人力は？</h2>
+
+        {% if user.is_authenticated %}
+        <br>
+        <a href="{% url 'account_logout' %}" class="btn btn-primary btn-xl rounded-pill mt-4">ログアウト</a>
+        {% else %}
+        <a href="{% url 'account_login' %}" class="btn btn-primary btn-xl rounded-pill mt-4">ログイン</a>
+        <a href="{% url 'account_signup' %}" class="btn btn-primary btn-xl rounded-pill mt-4">新規登録</a>
+        {% endif %}
+
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+  {% endblock %}
+
+  {% block contents %}
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="{% static 'img/01.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">旅人力診断</h2>
+            <p>あなたはどれほどの旅人なのか！</p>
+            {% if user.is_authenticated %}
+            <a href="{% url 'traveler:diagnosis'%}" class="btn btn-primary btn-xl rounded-pill mt-2">診断</a>
+            {% else %}
+            <a href="{% url 'traveler:guest_diagnosis'%}" class="btn btn-primary btn-xl rounded-pill ml-2 mt-2">ゲスト診断</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="{% static 'img/02.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="display-4">旅人実績</h2>
+            <p>旅人としての実績を残そう</p>
+            {% if user.is_authenticated %}
+            <a href="#" class="btn btn-primary btn-xl rounded-pill mt-2">実績</a>
+            {% else %}
+            <a href="{% url 'account_login' %}" class="btn btn-primary btn-xl rounded-pill mt-2">ログイン</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" src="{% static 'img/03.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">おすすめの旅先</h2>
+            <p>あなたのお気に入りの旅先は？</p>
+            {% if user.is_authenticated %}
+            <a href="{% url 'traveler:photo_list' %}" class="btn btn-primary btn-xl rounded-pill mt-2">見る</a>
+            {% else %}
+            <a href="{% url 'account_login' %}" class="btn btn-primary btn-xl rounded-pill mt-2">ログイン</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
