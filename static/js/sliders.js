@@ -1,13 +1,14 @@
 var mySwiper = new Swiper ('.swiper-container', {
-    
+    init: false,
+
     loop: true,
     speed: 600,
-    slidesPerView: 4,
+    slidesPerView: 1,
     spaceBetween: 10,
-    setWrapperSize: true,
+    setWrapperSize: false,
     direction: 'horizontal',
-    effect: 'slide',
- 
+    effect: 'fade',
+
     autoplay: {
       delay: 3000,
       stopOnLast: false,
@@ -38,3 +39,9 @@ var mySwiper = new Swiper ('.swiper-container', {
       el: '.swiper-scrollbar',
     }
 });
+
+mySwiper.init();
+
+mySwiper.on('init', function () {
+    console.log('initialized');
+  });
