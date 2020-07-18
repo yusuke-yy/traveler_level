@@ -7,41 +7,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
 </head>
 <body>
-    <header>
-        <h1>旅人力診断</h1>
-        <nav>
-            <ul>
-                <li><a href="http://127.0.0.1:8000">ホーム</a></li>
-                <li><a href="http://127.0.0.1:8000/inquiry/">問い合わせ</a></li>
-                <li><a href="http://127.0.0.1:8000/accounts/login/">ログイン</a></li>
-                <li><a href="http://127.0.0.1:8000/accounts/signup/">新規登録</a></li>
+    <header class="header">
+        <nav class="global-nav">
+            <ul class="global-nav__list">
+                <li class="global-nav__item"><a href="http://127.0.0.1:8000">ホーム</a></li>
+                <li class="global-nav__item"><a href="http://127.0.0.1:8000/inquiry/">問い合わせ</a></li>
+                <li class="global-nav__item"><a href="http://127.0.0.1:8000/accounts/login/">ログイン</a></li>
+                <li class="global-nav__item"><a href="http://127.0.0.1:8000/accounts/signup/">新規登録</a></li>
+                <li class="global-nav__item"><a href="http://127.0.0.1:8000/guest_diagnosis/">旅人力診断</a></li>
+                <li class="global-nav__item"><a href="http://127.0.0.1:8000">フォトリスト</a></li> 
             </ul>
         </nav>
+        <div class="hamburger" id="js-hamburger">
+            <span class="hamburger__line hamburger__line--1"></span>
+            <span class="hamburger__line hamburger__line--2"></span>
+            <span class="hamburger__line hamburger__line--3"></span>
+        </div>
+        <div class="black-bg" id="js-black-bg"></div>
     </header>
+
     <main>
-        <div class="swiper-container">
-            
-            <div class="swiper-wrapper">
-                
+        <div class="swiper-container">            
+            <div class="swiper-wrapper">                
                 <div class="swiper-slide"><img src="static/img/01.jpg"></div>
                 <div class="swiper-slide"><img src="static/img/02.jpg"></div>
                 <div class="swiper-slide"><img src="static/img/03.jpg"></div>
-                <div class="swiper-slide"><img src="static/img/04.jpg"></div>
-                
+                <div class="swiper-slide"><img src="static/img/04.jpg"></div>                
             </div>
-                
-            <div class="swiper-pagination"></div>   
-            
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-                     
-            <div class="swiper-scrollbar"></div>
         </div>
-
-        <ul>
-            <li><a href="http://127.0.0.1:8000">旅人力診断</a></li>
-            <li><a href="http://127.0.0.1:8000">フォトリスト</a></li> 
-        </ul>
     </main>
     <footer>
             <p class="">Copyright &copy; 旅人力診断 2020</p>
@@ -49,6 +42,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
     <script type="text/javascript" src="static/js/sliders.js"></script>
+    <script type="text/javascript" src="static/js/nav.js"></script>
     
 </body>
 </html>
