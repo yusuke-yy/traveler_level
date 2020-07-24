@@ -8,25 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
 </head>
 <body>
-    <header class="header">
-        <nav class="global-nav">
-            <ul class="global-nav__list">
-                <li class="global-nav__list--item"><a href="http://127.0.0.1:8000">ホーム</a></li>
-                <li class="global-nav__list--item"><a href="http://127.0.0.1:8000/inquiry/">問い合わせ</a></li>
-                <li class="global-nav__list--item"><a href="http://127.0.0.1:8000/accounts/login/">ログイン</a></li>
-                <li class="global-nav__list--item"><a href="http://127.0.0.1:8000/accounts/signup/">新規登録</a></li>
-                <li class="global-nav__list--item"><a href="http://127.0.0.1:8000/guest_diagnosis/">旅人力診断</a></li>
-                <li class="global-nav__list--item"><a href="http://127.0.0.1:8000">旅先写真館</a></li> 
-            </ul>
-        </nav>
-        <div class="hamburger" id="js-hamburger">
-            <span class="hamburger__line hamburger__line--1"></span>
-            <span class="hamburger__line hamburger__line--2"></span>
-            <span class="hamburger__line hamburger__line--3"></span>
-        </div>
-        <div class="black-bg" id="js-black-bg"></div>
-    </header>
-
+    
     <main>
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -50,14 +32,18 @@
             <div class="photo-list__sub-title">旅人が選ぶ最高の旅先</div>
             <a href="#" class="btn-circle-border-double">写真館</a>
         </div>
+        <div id="common"></div>
     </main>
-    <footer>
-        <p class="footer">Copyright &copy; 旅人力診断 2020</p>
-    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
     <script type="text/javascript" src="static/js/sliders.js"></script>
-    <script type="text/javascript" src="static/js/nav.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script>
+		$(function(){
+			$("#common").load(src="common");
+		});
+	</script>
     
 </body>
 </html>

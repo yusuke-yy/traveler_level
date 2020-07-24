@@ -6,6 +6,7 @@ from .views import PhotoViewSet, DiagnosisViewSet
 app_name = 'traveler'
 urlpatterns = [
     path('',views.IndexView.as_view(),name="index"),
+    path('common/',views.CommonView.as_view(),name="common"),
     path('inquiry/',views.InquiryView.as_view(),name="inquiry"),
     path('guest_diagnosis/',views.GuestDiagnosisView.as_view(),name="guest_diagnosis"),
     path('guest_diagnosis_result1/',views.GuestDiagnosisResult1View.as_view(),name="guest_diagnosis_result1"),
