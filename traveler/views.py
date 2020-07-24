@@ -10,11 +10,17 @@ import random
 from rest_framework import viewsets, filters
 from .serializers import PhotoSerializer,DiagnosisSerializer
 
+from django.http import JsonResponse
+
+
 logger = logging.getLogger(__name__)
 
 # Create your views here.
 class IndexView(generic.TemplateView):
     template_name = "index.html"
+
+class CommonView(generic.TemplateView):
+    template_name = "common.html"
 
 class InquiryView(generic.FormView):
     template_name = "inquiry.html"
