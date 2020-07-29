@@ -1,71 +1,29 @@
-{% extends 'base.html'%}
-{% load static%}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <title>フォトリスト｜旅人力診断</title>
+      <link rel="stylesheet" href="/static/css/style.css" />
+      <link rel="stylesheet" href="/static/css/photo-list.css" />
+    </head>
+    <body>
+      <script type="text/javascript" src="/static/js/photos.js"></script>
+      <div class="top">
+        <h1 class="top__h1">旅先写真館</h1>
+        <img class="top__img-photo-list" src="/static/img/10.jpg"></div>
+      </div>
+      <p  id="test"></h2>
+      <p class="" id="id"></h2>
 
-{%block title %}写真一覧｜旅人力診断{% endblock %}
+      <div id="common"></div>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-{% block active_photo_list %}active{% endblock %}
+    <script>
+      $(function(){
+        $("#common").load(src="http://127.0.0.1:8000/common");
+      });
+    </script>
 
-{%block header %}{% endblock %}
-
-{% block contents %}
-<div class="container">
-    <div class="row">
-        <div class="my-div-style w-100">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <div class="clearfix">
-                    <h2 class="masthead-subheading mb-0">お気に入りの旅先写真</h2>
-                    <a class="btn btn-primary float-right" href="{% url 'traveler:photo_create' %}">新規作成</a>
-                </div>
-
-                {% for photo in photo_list %}
-                <div class="post-preview">
-                    <a href="{% url 'traveler:photo_detail' photo.pk %}">
-                        <h2 class="post-title">
-                            {{ photo.title }}
-                        </h2>
-                    </a>
-                    <p class="post-meta">{{photo.created_at}}</p>
-                </div>
-                <hr>
-                {% empty %}
-                <p>写真がありません。</p>
-                {% endfor %}
-
-                <!-- ページネーション処理 -->
-                {% if is_paginated %}
-                    <ul class="pagination">
-
-                        <!-- 前ページへのリンク -->
-                        {% if page_obj.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
-                                    <span aria-hidden="true">&laquo</span>
-                                </a>
-                            </li>
-                        {% endif %}
-
-                        <!--ページ数表示-->
-                        {% for page_num in page_obj.paginatior.page_range %}
-                            {% if page_obj.number == page_num %}
-                                <li class="page-item active"><a class="page-link" href="#">{{page_num}}</a></li>
-                            {% else %}
-                                <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-
-                        <!-- 次ページへのリンク -->
-                        {% if page_obj.has_next %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.next_page_number }}">
-                                    <span aria-hidden="true">&raquo</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                {% endif %}
-
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
+    </body>
+</html>

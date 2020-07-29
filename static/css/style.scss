@@ -11,7 +11,8 @@
 
 .img {
     width: 100%;
-    height: 120vh;
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
     position: relative;
     z-index: 5;
@@ -44,7 +45,7 @@
 }
 
 .img-traveler-level {
-    max-width: 700px;
+    max-width: 50%;
     height: auto;
     margin:50px;
 }
@@ -85,3 +86,99 @@
     font-size: 30px;
     }
 }
+
+@media screen and (max-width: 1024px) { 
+      .img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+          object-fit: cover;
+        position: relative;
+        z-index: 5;
+      }
+      
+      .title {
+        padding-right: 5%;
+        padding-left: 5%;
+        padding-bottom: 1%;
+        border-bottom: 1px solid red;
+        width: 90%;
+        text-align: center;
+      }
+      
+      .sub-title {
+        padding-right: 5%;
+        padding-left: 5%;
+        padding-bottom: 5%;
+        width: 90%;
+        margin: 0;
+        text-align: center;
+      }
+      
+      .traveler-level {
+        width: 100vw;
+        margin: 0;
+        text-align: center;
+      }
+      
+      .traveler-level__title {
+        font-size: 5vh;
+        border-bottom: 3px solid red;
+        width: 100%;
+      }
+      
+      .traveler-level__sub-title {
+        font-size: 3vh;
+        margin-top: 3%;
+      }
+      
+      .img-traveler-level {
+        max-width: 100%;
+        height: auto;
+        margin:0;
+      }
+  
+      .btn-circle-border-double {
+        display: inline-block;
+        text-decoration: none;
+        color: #668ad8;
+        font-size: 40px;
+        width: 200px;
+        height: 100px;
+        line-height: 100px;
+        border-radius: 50%;
+        border: double 4px #668ad8;
+        text-align: center;
+        overflow: hidden;
+        -webkit-transition: .6s;
+        transition: .6s;
+        margin: 0;
+        margin-top: 5%;
+        margin-bottom: 5%;
+      }
+      
+      .btn-circle-border-double:hover {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+      }
+      
+      .photo-list {
+        width: 100vw;
+        margin: 0;
+        text-align: center;
+      }
+      
+      .photo-list__title {
+        font-size: 5vh;
+        border-bottom: 3px solid red;
+        width: 100%;
+      }
+      
+      .photo-list__sub-title {
+        font-size: 3vh;
+        margin: 0;
+        margin-top: 3%;
+      }
+}
+
