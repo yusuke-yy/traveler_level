@@ -15,9 +15,16 @@ async function fetchImage(url, options){
     // document.getElementById('test').innerHTML = '<a href='+response[0].photo1+'>'+response[0].title+'</a>';
     // document.getElementById('test2').insertAdjacentHTML('afterbegin','<a href='+response[1].photo1+'>'+response[1].title+'</a>');
     
+    // for (let i = 0; i <= response.length-1; i++) {
+    //     document.getElementById('id').insertAdjacentHTML('afterbegin','<a href='+response[i].photo1+'>'+response[i].title+'</a><h2></h2>');
+    //     console.log(response.length-1)
+    // }
     for (let i = 0; i <= response.length-1; i++) {
-        document.getElementById('id').insertAdjacentHTML('afterbegin','<a href='+response[i].photo1+'>'+response[i].title+'</a><h2></h2>');
+        const imageElement = document.createElement('img');
+        document.body.appendChild(imageElement);
+        imageElement.src = response[i].photo1;
         console.log(response.length-1)
+        imageElement.classList.add("img-photo");
     }
 }
 

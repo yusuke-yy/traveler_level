@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@import "header.scss";
+@import "base.scss";
+@import "footer.scss";
+
+
+.top {
+    position: relative;
+    &__h1 {
+        position: absolute;
+        top: -85px;
+        left: 20px;
+        font-size: 125px;
+    }
+    &__img-photo-list {
+        width: 100%;
+    }
+}
+
+.img-photo-list {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.img-photo {
+    margin-left: 0.6%;
+    margin-right: 0.1%;
+    width: 32.5%;
+    max-width: 32.5%;
+    height: 500px;
+    min-height: 500px;
+    position: relative;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+@media screen and (max-width: 1024px) { 
+    .img-photo {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+}
