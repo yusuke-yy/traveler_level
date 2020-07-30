@@ -12,10 +12,10 @@ class GuestDiagnosisForm(forms.Form):
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
 
-        self.fields['prefectures'].widget.attrs['class']= 'form-control col-12'
-        self.fields['prefectures'].widget.attrs['placeholder']= '今まで訪れた都道府県の数をここに入力してください。'
-        self.fields['countries'].widget.attrs['class']= 'form-control col-12'
-        self.fields['countries'].widget.attrs['placeholder']= '今まで訪れた国の数をここに入力してください。'
+        self.fields['prefectures'].widget.attrs['class']= 'field'
+        self.fields['prefectures'].widget.attrs['placeholder']= '今まで訪れた都道府県の数をここに入力してください'
+        self.fields['countries'].widget.attrs['class']= 'field'
+        self.fields['countries'].widget.attrs['placeholder']= '今まで訪れた国の数をここに入力してください'
 
 class InquiryForm(forms.Form):
     name = forms.CharField(label='お名前',max_length=30)
