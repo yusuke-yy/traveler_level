@@ -1,23 +1,28 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>旅人力診断｜旅人力診断</title>
+        <link rel="stylesheet" href="/static/css/guest-diagnosis.css" />
+    </head>
+    <body>
 
-{% load static %}
+        <div id="common"></div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-{% block title %}ゲスト診断結果|旅人力診断{% endblock %}
+        <script>
+        $(function(){
+            $("#common").load(src="http://127.0.0.1:8000/common");
+        });
+        </script>
 
-{% block active_guest_diagnosis %}active{% endblock %}
-
-{% block contents %}
-<h1 style="margin-top:2rem;"></h1>
-<div class="container">
-    <div class="row">
-        <div class="my-div-style">
-            <h2>あなたの旅人力は「コロンブス」級です。</h2> 
-            <p>目指せ「マルコポーロ」級！！</p>
-            <img class="img-fluid rounded-circle" src="{% static 'img/04.jpg' %}" alt="松島">
-            <br>
-            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-xl rounded-pill mt-4">新規登録はこちら</a>
-            <p></p>
-        </div>
-    </div>
-</div>
-{% endblock %}
+    <h2>あなたの旅人力は「コロンブス」級です。</h2> 
+    <p>目指せ「マルコポーロ」級！！</p>
+    
+    <a href="{% url 'account_signup' %}" class="btn-sticky">新規登録はこちら</a>
+    <p></p>
+    <img class="top__img-guest-diagnosis" src="/static/img/11.jpg"></div>
+    
+    </body>
+</html>
