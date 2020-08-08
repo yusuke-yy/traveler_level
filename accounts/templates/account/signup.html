@@ -1,26 +1,35 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>旅人力診断｜旅人力診断</title>
+        <link rel="stylesheet" href="/static/css/guest-diagnosis.css" />
+    </head>
+    <body>
 
-{% block title %}新規登録|旅人力診断{% endblock %}
+        <div id="common"></div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-{% block active_signup %}active{% endblock %}
+        <script>
+        $(function(){
+            $("#common").load(src="http://127.0.0.1:8000/common");
+        });
+        </script>
 
-{% block contents %}
-<div class="container">
-    <div class="row">
-        <div class="my-div-style">
-            <h1 style="margin-top:2rem;">新規登録</h1>
-            <form method="post" action="{% url 'account_signup'%}">
-                {% csrf_token %}
+    <h1>新規登録</h1>
+    <form method="post" action="{% url 'account_signup'%}">
+        {% csrf_token %}
 
-                {{ form.as_p }}
+        {{ form.as_p }}
 
-                {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                {% endif %}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
 
-                <button class="btn btn-primary" type="submit">登録</button>
-            </form>
-        </div>
-    </div>
-</div>
-{% endblock %}
+        <button class="btn-sticky" type="submit">登録</button>
+    </form>
+    <p></p>
+    <img class="top__img-guest-diagnosis" src="/static/img/12.jpg"></div>
+    </body>
+</html>

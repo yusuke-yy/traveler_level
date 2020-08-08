@@ -1,30 +1,38 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>旅人力診断｜旅人力診断</title>
+        <link rel="stylesheet" href="/static/css/guest-diagnosis.css" />
+    </head>
+    <body>
 
-{% block title %}Confirm sign up|旅人力診断{% endblock %}
+        <div id="common"></div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-{% block active_login %}active{% endblock %}
+        <script>
+        $(function(){
+            $("#common").load(src="http://127.0.0.1:8000/common");
+        });
+        </script>
 
-{% block contents %}
-<div class="container">
-        <div class="row">
-                <div class="my-div-style">
-                    <h1>ユーザー登録</h1>
+        <h1>ユーザー登録</h1>
 
-                    {% if confirmation %}
-                    <p>ユーザー登録を確定させるには以下のボタンを押してください。</p>
-                    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
-                        {% csrf_token %}
-                        <button class="btn btn-primary" type="submit">確定</button>
-                    </form>
+        {% if confirmation %}
+        <p>ユーザー登録を確定させるには以下のボタンを押してください。</p>
+        <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+            {% csrf_token %}
+            <button class="btn-sticky" type="submit">確定</button>
+        </form>
 
-                    {% else %}
+        {% else %}
 
-                        {% url 'account_email' as email_url %}
+            {% url 'account_email' as email_url %}
 
-                        <p>リンクの有効期限が過ぎています。<a href="{{ email_url }}">再申請</a>.</p>
+            <p>リンクの有効期限が過ぎています。<a href="{{ email_url }}">再申請</a>.</p>
 
-                    {% endif %}
-                </div>
-        </div>
-</div>
-{% endblock %}
+        {% endif %}
+    </form>
+    </body>
+</html>
