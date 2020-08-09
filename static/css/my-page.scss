@@ -1,0 +1,76 @@
+@charset "UTF-8";
+@import "header.scss";
+@import "base.scss";
+@import "footer.scss";
+
+.footer {
+    bottom: -17px;
+}
+
+.top {
+    position: relative;
+    &__h1 {
+        position: absolute;
+        top: 10vh;
+        left: 18vw;
+        font-size: 185px;
+        color: rgb(220, 239, 250)
+    }
+    &__img-my-page {
+        width: 100%;
+    }
+}
+
+.title {
+    padding-left: 30px;
+    border-bottom: 1px solid red;
+    width: 350px
+}
+
+.sub-title{
+    padding-left: 30px;
+}
+
+.my-page {
+    display: inline-block;
+    vertical-align: top;
+    margin: 60px;
+
+    &__title {
+    font-size: 90px;
+    border-bottom: 5px solid red;
+    width: 450px
+    }
+
+    &__sub-title {
+    font-size: 130px;
+    padding-left: 170px;
+    }
+}
+
+.img-my-page1 {
+    max-width: 50%;
+    height: auto;
+    margin:50px;
+}
+
+.btn-circle-border-double {
+    display: inline-block;
+    text-decoration: none;
+    color: #668ad8;
+    font-size: 40px;
+    width: 310px;
+    height: 150px;
+    line-height: 150px;
+    border-radius: 50%;
+    border: double 4px #668ad8;
+    text-align: center;
+    overflow: hidden;
+    transition: .6s;
+    margin: 60px; 
+
+    &:hover {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+    }
+}
