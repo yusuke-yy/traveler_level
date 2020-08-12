@@ -2,12 +2,20 @@
 <header class="header">
     <nav class="global-nav">
         <ul class="global-nav__list">
-            <li class="global-nav__list--item"><a href="http://127.0.0.1:8000">ホーム</a></li>
-            <li class="global-nav__list--item"><a href="http://127.0.0.1:8000/inquiry/">問い合わせ</a></li>
-            <li class="global-nav__list--item"><a href="http://127.0.0.1:8000/accounts/login/">ログイン</a></li>
-            <li class="global-nav__list--item"><a href="http://127.0.0.1:8000/accounts/signup/">新規登録</a></li>
-            <li class="global-nav__list--item"><a href="http://127.0.0.1:8000/guest_diagnosis/">旅人力診断</a></li>
-            <li class="global-nav__list--item"><a href="http://127.0.0.1:8000">旅先写真館</a></li> 
+            {% if user.is_authenticated %}
+            <li class="global-nav__list--item"><a href="{% url 'traveler:index' %}">ホーム</a></li>
+            <li class="global-nav__list--item"><a href="{% url 'traveler:my_page' %}">マイページ</a></li>
+            <li class="global-nav__list--item"><a href="{% url 'traveler:diagnosis' %}">旅人力診断</a></li>
+            <li class="global-nav__list--item"><a href="{% url 'traveler:photo_list' %}">旅先写真館</a></li> 
+            <li class="global-nav__list--item"><a href="{% url 'traveler:inquiry' %}">問い合わせ</a></li>
+            <li class="global-nav__list--item"><a href="{% url 'account_logout' %}">ログアウト</a></li>
+            {% else %}
+            <li class="global-nav__list--item"><a href="{% url 'traveler:index' %}">ホーム</a></li>
+            <li class="global-nav__list--item"><a href="{% url 'traveler:guest_diagnosis' %}">旅人力診断</a></li>
+            <li class="global-nav__list--item"><a href="{% url 'traveler:inquiry' %}">問い合わせ</a></li>
+            <li class="global-nav__list--item"><a href="{% url 'account_login' %}">ログイン</a></li>
+            <li class="global-nav__list--item"><a href="{% url 'account_signup' %}">新規作成</a></li>
+            {% endif %}
         </ul>
     </nav>
     <div class="hamburger" id="js-hamburger">
