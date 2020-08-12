@@ -1,39 +1,42 @@
-{% extends 'base.html'%}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>問い合わせ｜旅人力診断</title>
+        <link rel="stylesheet" href="/static/css/inquiry.css" />
+    </head>
+    <body>
+        <h1>問い合わせ</h1>
+        <div id="common"></div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-{% load static %}
+        <script>
+        $(function(){
+            $("#common").load(src="http://127.0.0.1:8000/common");
+        });
+        </script>
 
-{% block title %}お問い合わせ｜旅人力診断{% endblock %}
+        <form method="post">
+        {% csrf_token%}
 
-{% block active_inquiry %}active{% endblock %}
+        {{ form.non_field_errors }}
 
-
-{% block contents %}
-<h1 style="margin-top:1rem;"></h1>
-<div class="container">
-    <div class="row">
-        <div class="my-div-style" >
-            <form method="post">
-                {% csrf_token%}
-
-                {{ form.non_field_errors }}
-
-                {% for field in form %}
-                    <div class="form-group row">
-                        <label for="{{ field.id_for_label }}"　　class="col-sm-4 col-form-label">
-                            <strong>{{ field.label_tag}}</strong>
-                        </label>
-                        <div class="col-sm-8">
-                            {{ field }}
-                            {{ field.errors }}
-                        </div>
-                    </div>
-                {% endfor %}
-
-                <div class="offset-sm-4 col-sm-8">
-                    <button class="btn btn-primary" type="subimit">送信</button>
+        {% for field in form %}
+            <div class="">
+                <label for="{{ field.id_for_label }}"　　class="field-label-tag">
+                    <strong>{{ field.label_tag}}</strong>
+                </label>
+                <div class="field">
+                    {{ field }}
+                    {{ field.errors }}
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
-{% endblock %}
+            </div>
+        {% endfor %}
+
+            <div class="">
+                <button class="btn-vertical-border" type="subimit">送信</button>
+            </div>
+        </form>
+    </body>
+</html>
