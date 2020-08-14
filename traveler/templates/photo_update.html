@@ -1,25 +1,30 @@
-{% extends 'base.html'%}
-{% load static%}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>写真詳細｜旅人力診断</title>
+        <link rel="stylesheet" href="/static/css/photo-update.css" />
+    </head>
+    <body>
 
-{% block title %}写真更新｜Private Diary{% endblock %}
+        <div id="common"></div>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-{% block actiive_photo_list %}active{% endblock %}
+        <script>
+        $(function(){
+            $("#common").load(src="http://127.0.0.1:8000/common");
+        });
+        </script>
+    <form method="POST" enctype='multipart/form-data' class="form">
+        {% csrf_token %}
+        <table class="table">
 
-{% block contents %}
-<div class="container">
-    <div class="row">
-        <div class="my-div-style w-100">
-            <form method="POST" enctype='multipart/form-data'>
-                {% csrf_token %}
-                <table class="table">
+            {{ form.as_table }}
 
-                    {{ form.as_table }}
-
-                </table>
-                <button class="btn btn-primary" type="submit">更新</button>
-                <a class="btn btn-secondary ml-2" href="{% url 'traveler:photo_detail' object.pk %}">キャンセル</a>
-            </form>
-        </div>            
-    </div>
-</div>
-{% endblock %}
+        </table>
+        <button class="btn-sticky" type="submit">更新</button>
+        <a class="btn-sticky2" href="{% url 'traveler:photo_detail' object.pk %}">キャンセル</a>
+    </form>
+    </body>
+</html>
